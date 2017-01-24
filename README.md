@@ -11,6 +11,8 @@ PowerShell module for Zwift hacks. Allows you to automate your Zwifting on Windo
 
 `Invoke-Zwift -withmap` is a gateway to automatically starting Zwift with all kinds of addons and option toggles
 
+`New-ZwiftShortcut -course Richmond -WithMap` Ever wanted a windows shortcut that starts your favourite course at the same time as the ZwiftMap add-on, with one click? This cmdlet is for you. Create a shortcut for all three courses, if you like.
+
 There are more cmdlets coming.
 
 ### Find out more
