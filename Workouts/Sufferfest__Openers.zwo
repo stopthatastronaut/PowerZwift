@@ -1,0 +1,37 @@
+<workout_file>
+    <author>J.Brown KoS</author>
+    <name>Sufferfest: Openers</name>
+    <description></description>
+    <sportType>bike</sportType>
+    <tags>
+        <tag name="INTERVALS"/>
+    </tags>
+    <workout>
+        <SteadyState Duration="240" Power="0.4998039"/>
+        <SteadyState Duration="120" Power="0.6488235"/>
+        <SteadyState Duration="120" Power="0.8096078"/>
+        <SteadyState Duration="120" Power="0.95078433"/>
+        <SteadyState Duration="60" Power="1.0998039"/>
+        <SteadyState Duration="300" Power="0.6488235"/>
+        <SteadyState Duration="180" Power="0.95078433"/>
+        <SteadyState Duration="360" Power="0.5"/>
+        <SteadyState Duration="180" Power="0.95078433"/>
+        <SteadyState Duration="360" Power="0.4998039"/>
+        <SteadyState Duration="180" Power="0.95078433"/>
+        <SteadyState Duration="360" Power="0.5"/>
+        <SteadyState Duration="180" Power="0.95078433"/>
+        <SteadyState Duration="360" Power="0.4998039"/>
+        <SteadyState Duration="10" Power="1.2488235"/>
+        <SteadyState Duration="120" Power="0.4998039"/>
+        <SteadyState Duration="10" Power="1.2488235"/>
+        <SteadyState Duration="120" Power="0.4998039"/>
+        <SteadyState Duration="10" Power="1.2488235"/>
+        <SteadyState Duration="120" Power="0.4998039"/>
+        <SteadyState Duration="10" Power="1.2488235"/>
+        <SteadyState Duration="180" Power="0.4998039"/>
+        <SteadyState Duration="60" Power="0.95078433"/>
+        <SteadyState Duration="60" Power="0.8096078"/>
+        <SteadyState Duration="60" Power="0.6488235"/>
+        <SteadyState Duration="180" Power="0.4998039"/>
+    </workout>
+</workout_file>

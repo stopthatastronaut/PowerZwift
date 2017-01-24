@@ -1,0 +1,21 @@
+TOPIC
+	about_PowerZwift
+	
+SHORT DESCRIPTION
+	An automation module for the Zwift online cycling game, and third party add-ons
+	
+LONG DESCRIPTION
+	Zwift Power Users might appreciate this module, which allows you to automate things like installation, toggling music on and off, course selection, and numerous other actions
+
+	For more, try 
+
+	Get-Command -module PowerZwift
+
+	then
+
+	Get-Help <command name>
+LINKS
+	https://github.com/stopthatastronaut/PowerZwift
+	http://www.thecrankset.com/
+	
+	
