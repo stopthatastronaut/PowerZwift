@@ -57,5 +57,3 @@ Sydney, Australia
 This module is not directly affiliated with Zwift Inc. You use it at your own risk. Etc etc.
 
 PRs gratefully accepted
-
-I'm a teapot
