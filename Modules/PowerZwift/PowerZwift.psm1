@@ -88,10 +88,23 @@ Function Get-ZwiftCourse
     param()
     # if we have a <world> tag, return that value.
     # if not, return "default"
+    if(!(Test-Path $home\Documents\Zwift\prefs.xml))
+    {
+        Write-Error "ZWIFT PREFS FILE NOT FOUND"
+        throw;
+    }
 
+    $prefs = [xml](gc $home\Documents\Zwift\prefs.xml)
 
-    # not yet implemented
-
+    if($prefs.ZWIFT.WORLD -eq $null)
+    {
+        # nothing to do here. We're already default
+        return "default"
+    }
+    else
+    {
+        return $prefs.ZWIFT.WORLD
+    }
 }
 
 Function Get-ZwiftPreferences
@@ -309,7 +322,7 @@ Function Invoke-Zwift
 .Synopsis
    Turns off the startup music
 .DESCRIPTION
-   Provided to automate starting Zwift with optional extras running. Notably, running Zwiftmap at the same time as running Zwift
+   Annoyed by the default startup music? Turn it off here
 .EXAMPLE
    Disable-ZwiftStartupMusic
 .EXAMPLE
@@ -341,6 +354,18 @@ Function Disable-ZwiftStartupMusic
     }
 }
 
+<#
+.Synopsis
+   Turns on the startup music
+.DESCRIPTION
+   Miss the opening music? Turn it back on here
+.EXAMPLE
+   Disable-ZwiftStartupMusic
+.EXAMPLE
+   Disable-ZwiftStartupMusic -Verbose
+.COMPONENT
+   PowerZwift - http://github.com/stopthatastronaut/PowerZwift
+#>
 Function Enable-ZwiftStartupMusic
 {
     [cmdletbinding()]
@@ -389,11 +414,6 @@ Function Get-ZwiftId
     return $foldername -replace "user", ""
 }
 
-Function New-ZwiftShortcut
-{
-
-}
-
 <#
 .Synopsis
    Puts a new clickable shortcut on your desktop, with your preferences
@@ -433,4 +453,32 @@ Function New-ZwiftShortcut
     $Shortcut.iconlocation = "C:\Program Files (x86)\Zwift\ZwiftLauncher.exe"
     $Shortcut.Save()
 
+}
+
+Function Get-ZwiftWorkouts
+{
+    [CmdletBinding()]
+    param()
+    # lists workouts
+    if(-not (Test-Path $home\Documents\Zwift\Workouts))
+    {
+        throw "Workouts folder not found"
+    }
+    else
+    {
+        $w = (gci $home\Documents\Zwift\Workouts -filter "*.zwo")
+
+        if($w -eq $null)
+        {
+            throw "No custom workouts found"
+        }
+        else
+        {
+            $w | %  {
+                $wxml = [xml](gc $_.FullName)
+                # return it straight to the pipeline for processing
+                return @{Name = $wxml.workout_file.name; Author = $wxml.workout_file.author; Description = $wxml.workout_file.description; }
+            }
+        }
+    }
 }

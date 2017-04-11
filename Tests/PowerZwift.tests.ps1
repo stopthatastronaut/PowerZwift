@@ -22,3 +22,9 @@ Describe "Event Related Functions" {
     }
 
 }
+
+Describe "Set-ZwiftCourse" {
+    Context "Setting to default" {
+
+    }
+}
