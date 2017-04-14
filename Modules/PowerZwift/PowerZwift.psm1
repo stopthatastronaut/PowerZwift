@@ -455,10 +455,13 @@ Function New-ZwiftShortcut
 
 }
 
-Function Get-ZwiftWorkouts
+Function Get-ZwiftWorkout   # at the moment, only lists what you have. In future: will list what you have and allow you to drill down into a specific workout
 {
     [CmdletBinding()]
-    param()
+    param
+    (
+        
+    )
     # lists workouts
     if(-not (Test-Path $home\Documents\Zwift\Workouts))
     {
@@ -476,9 +479,40 @@ Function Get-ZwiftWorkouts
         {
             $w | %  {
                 $wxml = [xml](gc $_.FullName)
+
+                # get the intervals out of it
+
                 # return it straight to the pipeline for processing
-                return @{Name = $wxml.workout_file.name; Author = $wxml.workout_file.author; Description = $wxml.workout_file.description; }
+                return [pscustomobject]@{Name = $wxml.workout_file.name; Author = $wxml.workout_file.author; Description = $wxml.workout_file.description; Workout = $wxml.workout_file.workout.SteadyState}
             }
         }
     }
+}
+
+Function New-ZwiftWorkout
+{
+    [CmdletBinding()]
+    param
+    (
+        $Name,
+        $WorkoutType,
+        $Author,
+        $Description,
+        [switch]
+        $Random
+    )
+
+    # not yet implemented
+
+
+}
+
+FUnction Set-EventBackGround
+{
+    # let's grab all the images off the event feed, overlay the event details on it, then desktop background it
+
+
+    # not implemented
+
+    (irm https://zwift.com/json/events).GetEnumerator() | select -expand imageUrl
 }
